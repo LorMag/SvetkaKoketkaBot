@@ -8,7 +8,7 @@ import ssau.project.svetkakoketkabot.config.SvetkaConfig;
 
 @SpringBootApplication
 @EnableScheduling
-@EnableConfigurationProperties({/*ImagesConfig.class,*/ SvetkaConfig.class})
+@EnableConfigurationProperties({SvetkaConfig.class})
 public class SvetkaKoketkaBotApplication {
 
     public static void main(String[] args) {
