@@ -1,0 +1,26 @@
+bot:
+  name: SvetkaKoketkaBot
+  token: ${BOT_TOKEN}
+
+kinopoisk:
+  token: ${KINOPOISK_TOKEN}
+
+image:
+  images:
+    start: https://avatars.mds.yandex.net/i?id=2725fc0879e3591a089203baca59a6669af187c8-8527116-images-thumbs&n=13
+    default: https://icdn.lenta.ru/images/2016/09/28/13/20160928132250525/pic_a2090870bf42a3831d45297184f08d63.jpg
+    no-anime-photo: https://pibig.info/uploads/posts/2021-04/1619548849_21-pibig_info-p-pozhimanie-plechami-anime-krasivo-24.png
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/SvetkaKoketkaBot
+    username: postgres
+    password: ${DB_PASSWORD}
+    driverClassName: org.postgresql.Driver
+
