@@ -51,6 +51,7 @@ public class Sender extends DefaultAbsSender {
         }catch (TelegramApiException e) {
             System.out.println(e.getMessage());
             System.out.println(message.getCaption().length());
+            System.out.println("Id владельца ошибки: " + chatId);
         }
     }
 }

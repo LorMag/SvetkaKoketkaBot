@@ -42,7 +42,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        if (update.hasMessage() && update.getMessage().hasText()){
+        if (update.hasMessage() && update.getMessage().hasText()) {
 
 
             String messageText = update.getMessage().getText();
@@ -50,26 +50,17 @@ public class TelegramBot extends TelegramLongPollingBot {
             String name = update.getMessage().getChat().getFirstName();
             String[] commands = messageText.split(" ", 2);
 
-            switch (commands[0]){
-                case "/start":
-                    startCommand.commandReceived(chatId, name);
-                    break;
-                case "/wishes":
-                    wishCommand.commandReceived(update.getMessage());
-                    break;
-                case "/anime":
-                    kinopoiskCommand.commandReceived(chatId, MovieType.ANIME);
-                    break;
-                case "/film":
-                    kinopoiskCommand.commandReceived(chatId, MovieType.FILM);
-                    break;
-                case "/send":
-                    if (chatId == 1121192649){
+            switch (commands[0]) {
+                case "/start" -> startCommand.commandReceived(chatId, name);
+                case "/wishes" -> wishCommand.commandReceived(update.getMessage());
+                case "/anime" -> kinopoiskCommand.commandReceived(chatId, MovieType.ANIME);
+                case "/film" -> kinopoiskCommand.commandReceived(chatId, MovieType.FILM);
+                case "/send" -> {
+                    if (chatId == 1121192649) {
                         sendCommand.commandReceived(commands[1]);
                     }
-                    break;
-                default:
-                    defaultCommand.commandReceived(chatId);
+                }
+                default -> defaultCommand.commandReceived(chatId);
             }
 
         }
